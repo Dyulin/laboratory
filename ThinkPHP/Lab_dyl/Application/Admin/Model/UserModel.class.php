@@ -1,7 +1,7 @@
 <?php 
 namespace Admin\Model;
 use Think\Model;
-class LabinfoModel extends Model
+class UserModel extends Model
 {
 	protected $tablename='user';
 	  public function log_in($work_id,$password)
