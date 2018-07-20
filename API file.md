@@ -8,10 +8,10 @@ code:
 
 1.用户  
 ---  
-1.1 注册  
----  
-·POST/Labinfo/register  
-·payload:  
+1.1 注册
+---
+POST/Labinfo/register  
+payload:  
 {	  
 	"tyoe_no":  "权限号"  
 	"work_id" : "账号"，  
@@ -21,7 +21,7 @@ code:
 	 "email"   : 邮件，  
 	 "password" : 密码  
 	}  
-·return：  
+return：  
 {  
 	"code" : 0,  
 	"message": "",  
@@ -29,8 +29,8 @@ code:
 }  
 1.2 登录  
 ---  
-·POST /Labinfo/login  
-·payload :  
+POST /Labinfo/login  
+payload :  
 {  
     "work_id": "账号",  
     "password": "密码"  
@@ -42,9 +42,9 @@ return :
     "data": null  
 }  
 1.3修改自身信息 
---
-·POST/Labinfo/changeinfo  
-·payload:  
+---
+POST/Labinfo/changeinfo  
+payload:  
 {	  
 	"work_id" : "账号"，  
 	"job_id" : "职位号"，  
@@ -53,7 +53,7 @@ return :
 	 "email"   : 邮件，  
 	 "password" : 密码  
 	}  
-·return：  
+return：  
 {  
 	"code" : 0,  
 	"message": "",  
