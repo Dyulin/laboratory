@@ -26,7 +26,7 @@
 
 ## 1.1. 注册
 
-- POST /User/add
+- POST /User/register
 - payload :  
 ```json
 {  
@@ -67,7 +67,7 @@
 ---
 
 ## 1.3. 修改自身信息 
-- POST/User/changeinfo  
+- POST/User/changeInfo  
 - payload:  
 ```json
 {	  
@@ -96,7 +96,6 @@
 ```json
 {	  
 	 "oldpass": "旧密码",
-	"account" :"账号",
 	"newpass" :"新密码"
 } 
 ```
@@ -157,7 +156,6 @@
 	"member" :"成员名",
 	"duty" :"成员职责",
 	}
-	
 }
 ```
 
