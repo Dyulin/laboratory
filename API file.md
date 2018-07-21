@@ -5,7 +5,7 @@
 
 - [0. tips](#0-tips)
 - [1. 用户](#1-用户)
-  - [1.1注册(#11-注册)
+  - [1.1 注册(#11-注册)
   - [1.2 登录](#12登录)
   - [1.3 修改信息](#13修改信息)
   - [1.4 修改密码](#14修改密码)
@@ -15,46 +15,47 @@
   - [2.3. 项目展示](#23-项目展示)
 
 <!-- /TOC -->
+
 # 0.tips
-code: 
-0:验证用户无效  
-1：直接将message展示给用户  
-2：验证用户无效，跳转至登录页  
+
+- code: 
+- 0 : 验证用户无效  
+- 1 ：直接将message展示给用户  
+- 2 ：验证用户无效，跳转至登录页  
 
 # 1.用户  
 
-## 1.1 注册
+## 1.1. 注册
 
--POST/User/register  
--payload: 
-
-```json
-{ 
-"account":账号",
-"password" :"密码"
-}
-```
-- return： 
-
-```json
-{  
-	"code" : 0,  
-	"message": "",  
-	"data": null  
-}
-```
-
----
-## 1.2 登录
--POST /User/login  
--payload :  
+- POST /User/login  
+- payload :  
 ```json
 {  
     "account": "账号",
     "password": "密码"  
 }
 ```
--return :  
+- return :  
+
+```json
+{  
+    "code": 0,  
+    "message": "",  
+    "data": null  
+}
+```
+
+---
+## 1.2 登录
+- POST /User/login  
+- payload :  
+```json
+{  
+    "account": "账号",
+    "password": "密码"  
+}
+```
+- return :  
 
 ```json
 {  
@@ -67,19 +68,19 @@ code:
 ---
 
 ## 1.3 修改自身信息 
--POST/User/changeinfo  
--payload:  
+- POST/User/changeinfo  
+- payload:  
 ```json
 {	  
 	"job_id" : "职位号",
-	"account":账号",
-	"name":姓名",
-	"telphone":手机号", 
-	 "email":邮件"  
+	"account":"账号",
+	"name":"姓名",
+	"telphone":"手机号", 
+	 "email":"邮件"  
 }
 ```
 
--return： 
+- return： 
 ```json
 {  
 	"code" : 0,  
@@ -91,8 +92,8 @@ code:
 ---
 
 ## 1.4 修改密码
--POST/User/changepass 
--payload:  
+- POST/User/changepass 
+- payload:  
 ```json
 {	  
 	 "oldpass": "旧密码",
@@ -100,7 +101,7 @@ code:
 	"newpass" :"新密码"
 } 
 ```
--return：  
+- return：  
 ```json
 {  
 	"code" : 0,  
@@ -119,8 +120,8 @@ code:
 
 2.2项目列表   
 --
--POST /proinfo/showlist
--return :  
+- POST /proinfo/showlist
+- return :  
 ```json
 {  
     	"code": 0,  
@@ -135,13 +136,14 @@ code:
 ---
 
 ## 2.3项目展示
--POST/User/proshow
--payload:  
+- POST/User/proshow
+- payload:  
 ```json
 {	  
 	"pno" : "项目号",
-}  ```
--return：  
+} 
+```
+- return：  
 ```json
 {  
 	"code" : 0,  
@@ -156,5 +158,6 @@ code:
 	"duty" :"成员职责",
 	}
 	
-}```
+}
+```
 
