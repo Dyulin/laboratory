@@ -55,9 +55,12 @@ class UserController extends Controller
 			 		ajaxReturn(0,"注册失败");
 		}*/
 	public function register()
-	{
-		$account=201345;
-		$password='1234567';
+	{	
+		$account = (int)I('param.account','');
+		$password= I('param.password','');
+		$password = md5(password);
+		/*$account=201345;
+		$password='1234567';*/
 		$user=D('User');
 		if($user->check($account))
 				{
