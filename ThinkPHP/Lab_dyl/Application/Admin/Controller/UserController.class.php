@@ -10,68 +10,71 @@ class UserController extends Controller
 	 * 1--登录成功
 	 */
 	public function login()
-		{	
-			$account = (int)I('param.account','');
-			$password= I('param.password','');
-			$password = md5(password);
-			/*$a=2016214356;
-			$b='123456';*/
-			$user=D('User');
-			if($user->log_in($account,$password))
-				{
-					session('account',$account);
-					ajaxReturn(1,"登录成功");
-			    }
-			 		ajaxReturn(0,"登录失败");
- 		      
- 	    }
- 	/*public function register()
-		{	
-			//$account = (int)I('param.account','');
-			//$password= I('param.password','');
-			$account=2013 ;
-			$password='1234567';
-			//$password = md5(password);
-			$user=D('User');
-			$data2=array(
-	    	'id'=>null,
-	    	'role'=>0,
-			'account'=>$account,
-			'job_id'=>' ',
-			'name'=>' ',
-			'telphone'=>' ',
-			'email'=>' ',
-			'password'=>$password,
-			);
-			if($user->check($account))
-				{
-					if($user->add($data2));
-					{
-						ajaxReturn(1,"注册成功");
-						session('account',$account);
-					}
-					ajaxReturn(0,"注册失败");
-			    }
-			 		ajaxReturn(0,"注册失败");
-		}*/
+	{	
+		$account = (int)I('post.account','');
+		$password= I('post.password','');
+		$password=md5($password);
+		$user=D('User');
+		if($user->log_in($account,$password))
+		{
+			echo "登录成功";
+			//ajaxReturn(1,"登录成功");
+		}else 
+		{
+			echo '登录失败';
+			//ajaxReturn(0,"登录失败");
+		}
+	}
 	public function register()
 	{	
 		$account = (int)I('param.account','');
 		$password= I('param.password','');
-		$password = md5(password);
-		/*$account=201345;
-		$password='1234567';*/
+		$password = md5($password);
 		$user=D('User');
 		if($user->check($account))
-				{
-					if($user->regist($account,$password));
-					{
-						session('account',$account);
-						ajaxReturn(1,"注册成功");
-					}
-					ajaxReturn(0,"注册失败");
-			    }
-			 		ajaxReturn(0,"注册失败");
-}	  
+		{
+			if($user->regist($account,$password));
+			{	
+				echo "zhuce成功";
+				//ajaxReturn(1,"注册成功");
+			}	
+				echo "注册失败";
+				//ajaxReturn(0,"注册失败");
+		}
+			 	//ajaxReturn(0,"注册失败");
+	}
+	public function changeinfo()
+	{
+		$job_id=I('param.job_id','');
+		$name=I('param.name','');
+		$telphone=I('param.telphone','');
+		$email=I('param.email','');
+		$user=D('User');
+		if($user->change_info($job_id,$name,$telphone,$email))
+		{
+			echo "修改信息成功";
+			//ajaxReturn(1,"修改信息成功");
+		}else 
+		{
+			echo '修改信息失败';
+			//ajaxReturn(0,"修改信息失败");
+		}
+	}
+	public function changepass()
+	{
+		$oldpass=(int)I('param.oldpass','');
+		$newpass=(int)I('param.newpass','');
+		$user=D('User');
+		if($user->change_pass($oldpass,$newpass))
+		{
+			echo "修改密码成功";
+			//ajaxReturn(1,"修改信息成功");
+		}else
+		{	
+			echo "修改密码失败";
+			//ajaxReturn(1,"修改信息失败");
+		}
+
+	} 
 }
-?>	
+?>
