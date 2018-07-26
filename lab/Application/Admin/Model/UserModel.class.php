@@ -1,6 +1,6 @@
 <?php 
 namespace Admin\Model;
-use Admin\Common\ApiController;
+use Think\Model;
 class UserModel extends Model
 {	
 	private $errmsg; //错误信息
