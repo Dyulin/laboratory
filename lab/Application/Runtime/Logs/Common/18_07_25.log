@@ -1,0 +1,6 @@
+[ 2018-07-25T21:46:43+08:00 ] ::1 /lab/View
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000388s ]
+ERR: 无法加载模块:View
+
