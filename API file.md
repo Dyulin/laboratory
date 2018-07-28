@@ -132,9 +132,9 @@
     	"data":  
 {  
 	 "name" :"姓名",
-	 "photo" :"电话"
-	 "job_name" :"工作"
-	 "email" :"邮箱"
+	 "photo" :"电话",
+	 "job_name" :"工作",
+	 "email" :"邮箱",
 }
 ```
 ---
