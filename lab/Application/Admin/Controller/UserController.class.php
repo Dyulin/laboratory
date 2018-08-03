@@ -9,10 +9,15 @@ class UserController extends ApiController
 	 * 0--正常
 	 * 1--失败
 	 */
+		public function __construct(){
+		parent::__construct();
+
+	}
+
 	public function login()
 	{	
-		$account = (int)I('post.account','');
-		$password= I('post.password','');
+		$account = (int)I('param.account','');
+		$password= I('param.password','');
 		$password=md5($password);
 		$user=D('User');
 		if($user->log_in($account,$password))
@@ -48,7 +53,7 @@ class UserController extends ApiController
 		}
 	}
 
-	public function changeinfo()
+	public function changeInfo()
 	{
 		$job_id=(int)I('param.job_id','');
 		$name=I('param.name','');

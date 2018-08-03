@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>应用软件研究所</title>
+	<link rel="stylesheet" type="text/css" href="./css/login.css">
+</head>
+<body>
+<script type="text/javascript">
+         function check(form) {
+              if(form.user.value=='') {
+                    alert("请输入用户帐号!");
+                    form.user.focus();
+                    return false;
+               }
+               if(form.ps.value==''){
+                    alert("请输入登录密码!");
+                    form.ps.focus();
+                    return false;
+                 }
+          return true;
+         }
+</script>
+<form action="/lab/index.php/Admin/User/login" method="post" onsubmit="return check(this)">
+<table align="center">
+	<tr><td height=90px align="center" colspan=2><h2>欢迎登录</h2></td></tr>
+	<tr><td height=70px align="right">请输入用户名：</td><td align="left"><input type="text" name="user"></td></tr>
+	<tr><td height=70px align="right">请输入密码：</td><td align="left"><input type="password" name="ps"></td></tr>
+	<tr><td height=90px align="center" colspan=2><input class="button button1" type="submit" value="登录"></td></tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>应用软件研究所</title>
+<link rel="stylesheet" type="text/css" href="./css/register.css">
+</head>
+<body>
+<h1 align="center">注册页面</h1>
+<script type="text/javascript">
+
+
+function check(myform){
+					if(myform.user.value=="")
+					{
+					alert("请输入用户名!");
+					myform.user.focus();
+					return; 
+				    }
+					if(myform.ps.value=="")
+					{
+					alert("请输入密码!");
+					myform.ps.focus();
+					return; 
+				    }
+					if(myform.ps1.value=="")
+					{
+					alert("请确认密码!");
+					myform.ps1.focus();
+					return;
+				    }
+					if(myform.ps1.value!=myform.ps.value){
+					alert("您两次输入的密码不一致，请重新输入!");
+					myform.ps.focus();return;
+					}
+					myform.submit(); 
+					}
+
+</script>
+<br><br><br><br>
+<form action="/lab/index.php/Admin/User/login" method="post" name="myform">
+<table align="center" border="0">
+<tr><td align="right">用户名：</td><td><input type="text"  name="user" size=20></td></tr>
+<tr height=30px></tr>
+<tr><td align="right">密码：</td><td><input type="password" name="ps" size=20></td></tr>
+<tr height=30px></tr>
+<tr><td align="right">确认密码：</td><td><input type="password" name="ps1" size=20  onchange="checkpwd()"></td></tr>
+<tr height=30px></tr>
+
+<tr><td align="center" colspan="2"><input type="submit" class="button" name="submit" value="提交" onClick="check(myform)"></td></tr>
+<div id="msg" style="color:red;"></div>
+</table>
+</form>
+</body>
+<html>

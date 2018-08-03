@@ -12,6 +12,7 @@ class UserModel extends Model
 		if($password===($data[0]['password']))
 	    {	
 	    	session ('id',$data[0][id]);
+	    	session('account',$account);
 	    	return ture;
 		}
 			$this->errmsg= '用户名或密码错误';
@@ -42,6 +43,7 @@ class UserModel extends Model
 			$a ='select id from user where account='.$account;
 			$data2 = $this -> query($a);	
 			session ('id',$data2[0][id]);
+			session('account',$account);
 			return true;
 		} 	
 			$this->errmsg='session设置失败';
@@ -90,6 +92,73 @@ class UserModel extends Model
 			$showper=$this->query($sql);
 			return  $showper;
 		}
+	public function _delete($account){
+		$id=session('id');
+		$check='select  role from user where id ='.$id;
+	    $check=$this->query($check);
+	    if($check[0][role]==1)
+	    {	
+			$sql='select role from user where account ='.$account;
+			$data=$this->query($sql);
+			if($data)
+			{
+				if($data[0][role]!=1)
+				{
+      				$this->where('account='.$account)->delete();
+      				return ture;
+				}
+				else
+				{
+					$this->errmsg='您不能删除其他管理员';
+					return false;
+				}
+			}
+			else
+			{
+				$this->errmsg='该账号不存在,请重新输入';
+				return false;
+			}
+	    }
+	  	else 
+	    {	
+	    	$this->errmsg='抱歉，您不是管理员';
+	    	return false;
+	    }	
+	}
+	public function insadmin($account){
+		$id=session('id');
+		$check='select  role from user where id ='.$id;
+	    $check=$this->query($check);
+	    if($check[0][role]==1)
+	    {	
+			$sql='select role from user where account ='.$account;
+			$a=$this->query($sql);
+			if($a)
+			{
+				if($a[0][role]==0)
+				{
+      				$data[role]=1;
+      				$this->where('account='.$account)->save($data);
+      				return ture;
+				}
+				else
+				{
+					$this->errmsg='您不能对其他管理员进行操作';
+					return false;
+				}
+			}
+			else
+			{
+				$this->errmsg='该账号不存在,请重新输入';
+				return false;
+			}
+	    }
+	  	else 
+	    {	
+	    	$this->errmsg='抱歉，您不是管理员';
+	    	return false;
+	    }	
+	}
 	public function getError()
 	{
 		return $this->errmsg;
