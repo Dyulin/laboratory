@@ -13,7 +13,6 @@ class UserController extends ApiController
 		parent::__construct();
 
 	}
-
 	public function login()
 	{	
 		$account = (int)I('param.account','');
@@ -21,7 +20,8 @@ class UserController extends ApiController
 		$password=md5($password);
 		$user=D('User');
 		if($user->log_in($account,$password))
-		{
+		{	
+			$this->add_record($account,'登录');
 			$this->apiReturn();
 		}
 		else 
@@ -40,6 +40,7 @@ class UserController extends ApiController
 		{
 			if($user->regist($account,$password))
 			{	
+				$this->add_record($account,'注册');
 				$this->apiReturn();
 
 			}else
@@ -76,7 +77,8 @@ class UserController extends ApiController
 		$newpass=I('param.newpass','');
 		$user=D('User');
 		if($user->change_pass($oldpass,$newpass))
-		{
+		{	
+			$this->add_record(session('account'),'修改密码');
 			$this->apiReturn();
 		}
 		else

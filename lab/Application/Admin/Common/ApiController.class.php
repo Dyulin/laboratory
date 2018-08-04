@@ -12,6 +12,7 @@ class ApiController extends Controller {
         header('Access-Control-Allow-Methods:PUT,POST,GET,DELETE,OPTIONS');
         header('X-Powered-By: 3.2.1');
 
+		
 	}
 	protected function apiReturn($data = array(), bool $correct = true)
 	{
@@ -32,6 +33,12 @@ class ApiController extends Controller {
 	{
 		$arr=json_decode(file_get_contents('php://input'), true);
 
+	}
+	protected function add_record($account,$content)
+	{	
+		$time=date("Y/m/d").' '.date("h:i:sa");
+		$newrecord=D('Record');
+		$newrecord->addrecord($account,$content,$time);
 	}
 }
 ?>
